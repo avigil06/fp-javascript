@@ -39,6 +39,7 @@ for (let i=0; i<foo.length; i++) {
 /* Reduce approach */
 const getMax = (result, pred) => pred > result ? pred : result;
 bar = foo.reduce(getMax, 0);
+```
 
 ## Why
 
