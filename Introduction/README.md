@@ -21,7 +21,24 @@ value = fpAdd(2, value);
 /* value is initialized to 0, the sum is assigned back to value.
 ```
 
-This is a very basic example but it illustrates the difference between a function which is aware of code outside it's scope, vs. a function which is only aware of it's scope. This is the guiding principle of FP.
+This is a very basic example but it illustrates the difference between a function which is aware of code outside it's scope, vs. a function which is only aware of it's scope. This is the guiding principle of FP. Something that is much more common might be the use of loops and side effects. Loops, by nature are imperitive, as they have no real scoping of there own.
+
+```
+/* Get the highest number */
+const foo = [5, 3, 6, 2, 7, 9, 10, 1, -10, 4];
+
+
+/* Loop approach */
+let bar = 0;
+for (let i=0; i<foo.length; i++) {
+  if (foo[i] > bar) {
+    bar = foo[i];
+   }
+} // result: 10;
+
+/* Reduce approach */
+const getMax = (result, pred) => pred > result ? pred : result;
+bar = foo.reduce(getMax, 0);
 
 ## Why
 
