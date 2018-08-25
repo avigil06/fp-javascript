@@ -76,6 +76,7 @@ No State Mutations.
 
 ## Other Take Aways
 I would like to introduce you to one of my favorite JS libraries.
+
 [RamdaJS](https://ramdajs.com/)
 
 ## What's next
