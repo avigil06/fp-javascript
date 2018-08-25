@@ -63,5 +63,21 @@ const bar = foo.reduce(getMax, { sort: 0 }); // result { id: 4, sort: 50 };
 ```
 
 ## Why
+So given the above examples. It's easy to see why using pure functions are helpful. It is easy to reason about a function. Here are a few more reasons to stop mutating state and avoiding mutations.
 
-## When
++ Easy to unit test
++ Swap out implementations and maintain declarative nature
++ A/B test implementations for performance optimizations
+
+## Summary
+For a given input, a function will always return the same response.
+No Side Effects.
+No State Mutations.
+
+## Other Take Aways
+I would like to introduce you to one of my favorite JS libraries.
+[RamdaJS](https://ramdajs.com/)
+
+## What's next
+Now that we have a handle on the corner stone of functional programming, we will introduce function composition in our next section.
+
