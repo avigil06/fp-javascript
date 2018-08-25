@@ -11,13 +11,13 @@ const add = (qty) => {
   value += qty;
 }
 add(2);
-/* value is initialized to 0, and set to 2 */
+/* value is initialized to 0, and mutated to 2 */
 
-const fpAdd = (qty, v) => {
+const fpAdd = (v, qty) => {
   return qty + v;
 };
 let value = 0;
-value = fpAdd(2, value);
+value = fpAdd(value, 2);
 /* value is initialized to 0, the sum is assigned back to value.
 ```
 
@@ -39,6 +39,27 @@ for (let i=0; i<foo.length; i++) {
 /* Reduce approach */
 const getMax = (result, pred) => pred > result ? pred : result;
 bar = foo.reduce(getMax, 0);
+```
+
+I know what you are thinking. You're thinking "Andrew, there are still better ways. I could solve that last problem with Math.max". You're absolutely right. You sure can. How about this one?
+
+```
+const foo = [
+  { id: 1, sort: 10 },
+  { id: 2, sort: 3 },
+  { id: 3, sort: -10 },
+  { id: 4, sort: 50 },
+  { id: 5, sort: 5 },
+];
+
+/* We can still use the same loop and switch our condition from
+*  if (foo[i].sort > bar.sort)
+*  ---------------------------
+*  Let's try the reduce
+*/
+
+const getMax = (result, pred) => pred.sort > result.sort ? pred : result;
+const bar = foo.reduce(getMax, { sort: 0 }); // result { id: 4, sort: 50 };
 ```
 
 ## Why
