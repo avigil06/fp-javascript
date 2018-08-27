@@ -38,7 +38,7 @@ console.log(defaultTo(prop('id', test))); // 1
 console.log(defaultTo(prop('error', test))); // null
 ```
 
-# Whats next?
+# Where I am now?
 After spending time with some of the more utility list functions, I became brave enough to understand pipe and compose. I prefer
 the readability of compose as it's easier for me to read a function, with predicate argument, from right to left. Function composition,
 has allowed me to leverage single purpose functions in ways that I have not been able to in the past. Suddenly immutable business logic
@@ -50,6 +50,9 @@ My approach has been and continues to be to start at the first data transform. I
 value, I know it will probably be a reducer instead of a filter. If I need to take that final result and transform it for a presentational piece,
 I know that I will have a function that takes the result of the reduce, and transforms it. If I start with the final transformation, I will
 usually end up writing an overly complicated function that will need to be refactored. Single Purpose functions really do make for cleaner code.
+
+# What is next?
+I would like to better understand function programming terminology and other core concepts. There are paradigms inside of FP that present solution scaffolds to problems based on the type of input and output requirements of a solution. I want to explore these next.
 
 # Final Thoughts
 In the end, I don't think Functional Programming slows my workflow. I believe I pick up a lot of velocity on the tail end of development by
