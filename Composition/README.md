@@ -70,9 +70,21 @@ const getNameOfMen = compose(
   map(getName),
   filter(isPresident)
 );
+const getNameOfPresidentsAge45Plus = compose(
+ map(getName),
+ filter(isPresident),
+ filter(filterAge45Plus),
+);
 
 const presidents = getNameOfPresidents(people);
 const men = getNameOfMen(people);
+const presidentsAge45Plus(people);
 ```
 
-That was much easier than adding additional branching logic to our original loop or setting up additional empty lists to append to.
+That was much easier than adding additional branching logic to our original loop or setting up additional empty lists to append to. You will also notice I stacked an additional filter in a slightly more complex function.
+
+# Summary
+
++ Simple, purposeful functions
++ Complex logic is made of small solutions
++ Minutely testable functions
