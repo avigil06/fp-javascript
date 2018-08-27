@@ -88,3 +88,9 @@ That was much easier than adding additional branching logic to our original loop
 + Simple, purposeful functions
 + Complex logic is made of small solutions
 + Minutely testable functions
+
+# Bonus
+```
+const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)))
+```
+This is an implementation of compose. Compose returns us a function which is composed of the function arguments that are passed. When you call the resulting composed function with a non function argument, it will reduce the argument through each of the functions, from right to left, allowing the response of one function to be the argument of the next function, until no functions are left. This results in a final return that can be stored and acted upon.
