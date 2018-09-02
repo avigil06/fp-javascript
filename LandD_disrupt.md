@@ -123,7 +123,7 @@ right to left.
 ## Declarative Approach
 ```
 const startAtLevelOne = (student) => ({ ...student, level: 1 });
-const isMale = (student) => student.gender === 'M';
+const isGender = (gender) => (student) => student.gender === gender;
 const hasPassingGrade = (student) => student.grade >= 65;
 const addOne = currySum(1);
 const promoteLevel = (student) => ({ ...student, level: addOne(student.level) });
@@ -131,13 +131,13 @@ const promoteLevelIfHasPassingGrade = (student) => hasPassingGrade(student) ? pr
 
 const maleStudents = students
   .map(startAtLevelOne)
-  .filter(isMale)
+  .filter(isGender('M'))
   .map(promoteLevelIfHasPassingGrade)
   .sort(sortStudents);
 
-const femaleStudents = maleStudents
+const femaleStudents = students
   .map(startAtLevelOne)
-  .filter((student) => !isMale(student))
+  .filter(isGender('F'))
   .map(promoteLevelIfHasPassingGrade)
   .sort(sortStudents);
 ```
@@ -171,19 +171,18 @@ RamdaJS is a collection of utilities which allow you to act upon different types
 Lets do one more refactor.
 
 ```
-import { compose, map, filter, sort, add } from 'ramda';
+const addOneLevel = R.add(1);
 const startAtLevelOne = (student) => ({ ...student, level: 1 });
 const isGender = (gender) => (student) => student.gender === gender;
 const hasPassingGrade = (student) => student.grade >= 65;
-const addOne = add(1);
-const promoteLevel = (student) => ({ ...student, level: addOne(student.level) });
+const promoteLevel = (student) => ({ ...student, level: addOneLevel(student.level) });
 const promoteLevelIfHasPassingGrade = (student) => hasPassingGrade(student) ? promoteLevel(student) : student;
 
-const getStudentsOfGender = (gender) => compose(
-    sort(sortStudents),
-    map(promoteLevelIfHasPassingGrade),
-    filter(isGender(gender)),
-    map(startAtLevelOne),
+const getStudentsOfGender = (gender) => R.compose(
+    R.sort(sortStudents),
+    R.map(promoteLevelIfHasPassingGrade),
+    R.filter(isGender(gender)),
+    R.map(startAtLevelOne),
 );
 
 const maleStudents = getStudentsOfGender('M')(students);
