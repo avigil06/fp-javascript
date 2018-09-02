@@ -34,18 +34,18 @@ let students = [
   { name: 'Stuart', grade: 64, gender: 'M' },
   { name: 'Penny', grade: 64, gender: 'F' },
   { name: 'Bernadette', grade: 88, gender: 'F' },
-  { name: 'Zach', grade: 43, gender: 'F' },
+  { name: 'Zach', grade: 43, gender: 'M' },
 ];
 
 const sortStudents = (a, b) => {
-  if (a.level > b.level) return 1;
-  if (b.level > a.level) return -1;
-  if (a.grade > b.grade) return 1;
-  if (b.grade > a.grade) return -1;
+  if (a.level > b.level) return -1;
+  if (b.level > a.level) return 1;
+  if (a.grade > b.grade) return -1;
+  if (b.grade > a.grade) return 1;
   return 0;
 }
 
-const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)))
+const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)));
 ```
 
 ### Project Tasks
