@@ -148,7 +148,7 @@ RamdaJS is a collection of utilities which allow you to act upon different types
 ```
 import { compose, map, filter, sort, add } from 'ramda';
 const startAtLevelOne = (student) => ({ ...student, level: 1 });
-const isMale = (student) => student.gender === 'M';
+const isGender = (gender) => (student) => student.gender === gender;
 const hasPassingGrade = (student) => student.grade >= 65;
 const addOne = add(1);
 const promoteLevel = (student) => ({ ...student, level: addOne(student.level) });
@@ -157,7 +157,7 @@ const promoteLevelIfHasPassingGrade = (student) => hasPassingGrade(student) ? pr
 const getStudentsOfGender = (gender) => compose(
     sort(sortStudents),
     map(promoteLevelIfHasPassingGrade),
-    filter((student) => student.gender === gender),
+    filter(isGender(gender)),
     map(startAtLevelOne),
 );
 
