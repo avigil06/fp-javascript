@@ -170,6 +170,15 @@ extensively to make the transition easier.
 RamdaJS is a collection of utilities which allow you to act upon different types of data to create complex solutions. 
 Lets do one more refactor.
 
+All Ramda functions are attached to `R`.
+`add` - same as currySum
+`compose` - Ramda implementation of compose, executing from right to left
+`sort` - functional approach to sort
+`filter` - functional approach to filter
+`map` - functional approach to map
+
+We are using Ramdas `sort`, `filter`, `map` instead of the Array prototypes so we can pass the results of one function, into the next as it progresses through `compose`.
+
 ```
 const addOneLevel = R.add(1);
 const startAtLevelOne = (student) => ({ ...student, level: 1 });
