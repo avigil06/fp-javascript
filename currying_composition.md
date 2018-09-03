@@ -82,6 +82,9 @@ const sortedMaleStudents = maleStudents.sort(sortStudents);
 const sortedFemaleStudents = femaleStudents.sort(sortStudents);
 ```
 
+[CodePen](https://codepen.io/avigil06/pen/KxWEMZ)
+
+
 This approach works fine. We have achieved all of our goals. Some may disagree with me but I find this approach 
 difficult to follow the "What" for what we are wanting to achieve. It does describe how it is trying to achieve 
 it, but would you be able to figure out what exactly the purpose of this for loop is without the singe line 
@@ -142,6 +145,8 @@ const femaleStudents = students
   .sort(sortStudents);
 ```
 
+[CodePen](https://codepen.io/avigil06/pen/VGpRbY)
+
 If you are familiar with the array methods such as map, filter, sort, and reduce, you will note that we are doing 
 many loops now instead of just a single loop. This approach is slightly less performant than the imperative approach. 
 You will also note that not a single code comment was used. We also removed all of the business logic into single 
@@ -198,4 +203,5 @@ const maleStudents = getStudentsOfGender('M')(students);
 const femaleStudents = getStudentsOfGender('F')(students);
 ``` 
 
+[CodePen](https://codepen.io/avigil06/pen/rZyRwQ)
 
